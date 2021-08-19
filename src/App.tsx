@@ -1,13 +1,22 @@
 import React from 'react';
-import './App.css';
-import Technologies from "./Technologies";
-import Header from "./Header";
+import style from "./App.module.scss"
+import Header from "./components/header/Header";
+import Followers from "./components/followers/Followers";
+import Info from "./components/info/Info";
+import Posts from "./components/posts/Posts";
+import SideBar from "./components/sidebar/SideBar";
+import Title from "./components/title/Title";
+
 
 const App = () => {
     return (
-        <div className="App">
+        <div className={style.wrapper}>
             <Header/>
-            <Technologies/>
+            <SideBar/>
+            <Title/>
+            <Posts/>
+            <Followers/>
+            <Info/>
         </div>
     );
 }

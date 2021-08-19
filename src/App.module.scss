@@ -1,0 +1,10 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 7fr 3fr;
+  grid-template-rows: 63px 50px 6fr 6fr;
+  grid-template-areas: 'sidebar header header'
+                       'sidebar title title'
+                       'sidebar content block_1'
+                       'sidebar content block_2'
+                       ;
+}

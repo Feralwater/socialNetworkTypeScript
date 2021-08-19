@@ -1,0 +1,26 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  height: 100vh;
+
+  & .logo_block {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-bottom: 1px solid #e5e7eb;
+
+    & img {
+      width: 28px;
+      height: 22px;
+      margin-right: 10px;
+    }
+
+    & span {
+      color: #46494d;
+      font-weight: 500;
+      font-size: 20px;
+      white-space: nowrap;
+    }
+  }
+}
