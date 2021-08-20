@@ -7,31 +7,31 @@ const NavBar = () => {
         <nav className={style.navigation}>
             <ul className={style.navigation__links}>
                 <li className={style.navigation__link}>
-                    <a href="#" className={`${style.navigation__link_item} ${style.active}`}>
+                    <a href="/feed" className={`${style.navigation__link_item} ${style.active}`}>
                         <i>{profileIcon}</i>
                         Feed
                     </a>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="#" className={style.navigation__link_item}>
+                    <a href="/dialogs" className={style.navigation__link_item}>
                         <i>{messageIcon}</i>
                         Messages
                     </a>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="#" className={style.navigation__link_item}>
+                    <a href="/news" className={style.navigation__link_item}>
                         <i>{newsIcon}</i>
                         News
                     </a>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="#" className={style.navigation__link_item}>
+                    <a href="/music" className={style.navigation__link_item}>
                         <i>{musicIcon}</i>
                         Music
                     </a>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="#" className={style.navigation__link_item}>
+                    <a href="/settings" className={style.navigation__link_item}>
                         <i>{settingsIcon}</i>
                         Settings
                     </a>

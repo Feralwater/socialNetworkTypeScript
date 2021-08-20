@@ -2,12 +2,14 @@ import React from 'react';
 import style from "./Post.module.scss"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons'
+import {PostType} from "../Posts";
 
 
 const likeButtonIcon = <FontAwesomeIcon icon={faThumbsUp}/>
 const disLikeButtonIcon = <FontAwesomeIcon icon={faThumbsDown}/>
 
-const Post = () => {
+const Post: React.FC<PostType> = (props) => {
+    const {message, like, disLike} = props
     return (
         <>
             <div className={style.user}>
@@ -16,16 +18,16 @@ const Post = () => {
                 </div>
                 <div className={style.user__post}>
                     <div className={style.user__name}>Johnson Smith</div>
-                    <div className={style.post__body}>post body</div>
+                    <div className={style.post__body}>{message}</div>
                 </div>
             </div>
             <div className={style.buttons}>
                 <button>
                     <i>{likeButtonIcon}</i>
-                    <span>123</span></button>
+                    <span>{like}</span></button>
                 <button>
                     <i>{disLikeButtonIcon}</i>
-                    <span>1</span></button>
+                    <span>{disLike}</span></button>
             </div>
         </>
     );

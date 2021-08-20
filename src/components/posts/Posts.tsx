@@ -7,9 +7,15 @@ import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
 
 const addButtonIcon = <FontAwesomeIcon icon={faPlusCircle}/>
 
+export type PostType = {
+    message: string
+    like: number | ""
+    disLike: number | ""
+}
+
 const Posts = () => {
     return (
-        <main className={style.main}>
+        <main>
             <div className={style.form}>
                 <textarea className={style.form__textarea} placeholder={"Share your mind"}>
                 </textarea>
@@ -18,8 +24,14 @@ const Posts = () => {
                     Add
                 </button>
             </div>
-            <Post/>
-            <Post/>
+            <Post message={"Hello, how are you"}
+                  like={234}
+                  disLike={34}
+            />
+            <Post message={"It`s my first post"}
+                  like={""}
+                  disLike={""}
+            />
         </main>
     );
 };

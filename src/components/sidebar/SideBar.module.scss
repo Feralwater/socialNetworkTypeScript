@@ -2,7 +2,11 @@
   grid-area: sidebar;
   background-color: #ffffff;
   border-right: 1px solid #e5e7eb;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
+  width: 300px;
+  overflow: hidden scroll;
+  scrollbar-width: none;
 
   & .logo_block {
     display: flex;
@@ -23,4 +27,9 @@
       white-space: nowrap;
     }
   }
+
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

@@ -6,19 +6,32 @@ import Info from "./components/info/Info";
 import Posts from "./components/posts/Posts";
 import SideBar from "./components/sidebar/SideBar";
 import Title from "./components/title/Title";
+import Dialogs from "./components/dialogs/Dialogs";
+import {BrowserRouter, Route} from "react-router-dom";
+import News from "./components/news/News";
+import Music from "./components/music/Music";
+import Settings from "./components/settings/Settings";
 
 
 const App = () => {
-    return (
+    return (<BrowserRouter>
         <div className={style.wrapper}>
             <Header/>
             <SideBar/>
             <Title/>
-            <Posts/>
-            <Followers/>
-            <Info/>
+            <div className={style.main}>
+                <Route path={"/feed"} render={() => <Posts/>}/>
+                <Route path={"/dialogs"} render={() => <Dialogs/>}/>
+                <Route path={"/news"} render={() => <News/>}/>
+                <Route path={"/music"} render={() => <Music/>}/>
+                <Route path={"/settings"} render={() => <Settings/>}/>
+            </div>
+            <Route path={"/feed"} render={() => <Followers/>}/>
+            <Route path={"/feed"} render={() => <Info/>}/>
+            {/*<Followers/>*/}
+            {/*<Info/>*/}
         </div>
-    );
+    </BrowserRouter>);
 }
 
 export default App;
