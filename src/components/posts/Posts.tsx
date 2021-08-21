@@ -15,7 +15,7 @@ export type PostType = {
 
 const Posts = () => {
     return (
-        <main>
+        <main className={style.main}>
             <div className={style.form}>
                 <textarea className={style.form__textarea} placeholder={"Share your mind"}>
                 </textarea>

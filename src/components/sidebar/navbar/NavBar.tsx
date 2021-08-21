@@ -1,40 +1,52 @@
 import React from 'react';
 import style from "./NavBar.module.scss"
 import {logoutIcon, messageIcon, musicIcon, newsIcon, profileIcon, settingsIcon} from "./icons";
+import {NavLink} from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav className={style.navigation}>
             <ul className={style.navigation__links}>
                 <li className={style.navigation__link}>
-                    <a href="/feed" className={`${style.navigation__link_item} ${style.active}`}>
+                    <NavLink to="/feed" className={`${style.navigation__link_item}`}
+                             activeClassName={style.active}
+                    >
                         <i>{profileIcon}</i>
                         Feed
-                    </a>
+                    </NavLink>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="/dialogs" className={style.navigation__link_item}>
+                    <NavLink to="/dialogs" className={style.navigation__link_item}
+                             activeClassName={style.active}
+                    >
                         <i>{messageIcon}</i>
                         Messages
-                    </a>
+                        <span className={style.navigation__counter}>3</span>
+                    </NavLink>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="/news" className={style.navigation__link_item}>
+                    <NavLink to="/news" className={style.navigation__link_item}
+                             activeClassName={style.active}
+                    >
                         <i>{newsIcon}</i>
                         News
-                    </a>
+                    </NavLink>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="/music" className={style.navigation__link_item}>
+                    <NavLink to="/music" className={style.navigation__link_item}
+                             activeClassName={style.active}
+                    >
                         <i>{musicIcon}</i>
                         Music
-                    </a>
+                    </NavLink>
                 </li>
                 <li className={style.navigation__link}>
-                    <a href="/settings" className={style.navigation__link_item}>
+                    <NavLink to="/settings" className={style.navigation__link_item}
+                             activeClassName={style.active}
+                    >
                         <i>{settingsIcon}</i>
                         Settings
-                    </a>
+                    </NavLink>
                 </li>
             </ul>
             <div className={style.navigation__link_item}>

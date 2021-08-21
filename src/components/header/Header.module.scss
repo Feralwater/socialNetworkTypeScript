@@ -7,6 +7,27 @@
   align-items: center;
   justify-content: space-between;
 
+  &__envelop {
+    position: relative;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #be185d;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    color: #ffffff;
+    font-size: 14px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    font-weight: 500;
+    font-style: normal;
+  }
+
   & i {
     font-size: 20px;
     color: #666666;

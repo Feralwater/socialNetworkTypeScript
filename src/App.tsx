@@ -19,19 +19,19 @@ const App = () => {
             <Header/>
             <SideBar/>
             <Title/>
-            <div className={style.main}>
-                <Route path={"/feed"} render={() => <Posts/>}/>
+            <Route path={"/feed"} render={() => (
+                <>
+                    <Posts/>
+                    <Followers/>
+                    <Info/>
+                </>)}/>
                 <Route path={"/dialogs"} render={() => <Dialogs/>}/>
                 <Route path={"/news"} render={() => <News/>}/>
                 <Route path={"/music"} render={() => <Music/>}/>
                 <Route path={"/settings"} render={() => <Settings/>}/>
-            </div>
-            <Route path={"/feed"} render={() => <Followers/>}/>
-            <Route path={"/feed"} render={() => <Info/>}/>
-            {/*<Followers/>*/}
-            {/*<Info/>*/}
         </div>
-    </BrowserRouter>);
+    </BrowserRouter>)
+        ;
 }
 
 export default App;

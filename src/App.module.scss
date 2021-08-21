@@ -1,19 +1,9 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 300px 6fr 3fr;
+  grid-template-columns: 300px .5fr 7fr 4fr .5fr;
   grid-template-rows: 63px 50px 6fr 6fr;
-  grid-template-areas: 'sidebar header header'
-                       'sidebar title title'
-                       'sidebar content block_1'
-                       'sidebar content block_2';
-}
-
-.main {
-  grid-area: content;
-  background-color: #ffffff;
-  box-shadow: rgba(163, 163, 163, 0.87) 3px 3px 7px -1px;
-  margin: 50px;
-  border-radius: 6px;
-  padding: 20px;
-  min-height: 50vh;
+  grid-template-areas: 'sidebar header header header header'
+                       'sidebar . title title .'
+                       'sidebar . content block_1 .'
+                       'sidebar . content block_2 .';
 }

@@ -1,69 +1,76 @@
-.form {
-  display: flex;
+.main {
+  grid-area: content;
+  background-color: #ffffff;
+  box-shadow: rgba(163, 163, 163, 0.87) 3px 3px 7px -1px;
+  margin: 50px 0;
+  border-radius: 6px;
   padding: 20px;
+  min-height: 50vh;
 
-  &__textarea {
-    outline: none;
-    background-color: #f3f4f6;
-    border: none;
-    border-radius: 40px;
-    height: 60px;
-    padding: 0 20px;
-    font-size: 18px;
-    color: #9ca3af;
-    max-width: 100%;
-    width: 100%;
-    font-weight: 400;
-    box-shadow: 0 1px 4px 0px rgb(0, 0, 12%);
-    line-height: 60px;
-    resize: none;
-    overflow: hidden;
-  }
+  .form {
+    display: flex;
+    padding: 20px;
 
-  &__button {
-    color: #ffffff;
-    font-weight: 700;
-    background-color: #ec4899;
-    border-radius: 6px;
-    font-size: 18px;
-    width: 120px;
-    padding: 5px;
-    margin-left: 20px;
+    &__textarea {
+      outline: none;
+      background-color: #f3f4f6;
+      border: none;
+      border-radius: 40px;
+      height: 60px;
+      padding: 0 20px;
+      font-size: 18px;
+      color: #9ca3af;
+      max-width: 100%;
+      width: 100%;
+      font-weight: 400;
+      box-shadow: 0 1px 4px 0px rgb(0, 0, 12%);
+      line-height: 60px;
+      resize: none;
+      overflow: hidden;
+    }
 
-    & i {
-      margin-right: 10px;
+    &__button {
+      color: #ffffff;
+      font-weight: 700;
+      background-color: #ec4899;
+      border-radius: 6px;
+      font-size: 18px;
+      width: 120px;
+      padding: 5px;
+      margin-left: 20px;
+
+      & i {
+        margin-right: 10px;
+      }
     }
   }
-}
 
-::-webkit-input-placeholder {
-  color: #9ca3af;
-}
+  ::-webkit-input-placeholder {
+    color: #9ca3af;
+  }
 
-::-moz-placeholder {
-  color: #9ca3af;
-}
+  ::-moz-placeholder {
+    color: #9ca3af;
+  }
 
-:-moz-placeholder {
-  color: #9ca3af;
-}
+  :-moz-placeholder {
+    color: #9ca3af;
+  }
 
-:-ms-input-placeholder {
-  color: #9ca3af;
-}
+  :-ms-input-placeholder {
+    color: #9ca3af;
+  }
 
-:focus::-webkit-input-placeholder {
-  color: transparent
-}
+  :focus::-webkit-input-placeholder {
+    color: transparent
+  }
 
-:focus::-moz-placeholder {
-  color: transparent
-}
+  :focus::-moz-placeholder {
+    color: transparent
+  }
 
-:focus:-moz-placeholder {
-  color: transparent
-}
+  :focus:-ms-input-placeholder {
+    color: transparent
+  }
 
-:focus:-ms-input-placeholder {
-  color: transparent
 }
