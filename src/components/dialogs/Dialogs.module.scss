@@ -42,11 +42,21 @@
     border-bottom: 1px solid #e5e7eb;
     padding: 20px;
 
+    &_info {
+      display: flex;
+      align-items: center;
+    }
 
     &_image {
       width: 50px;
       height: 50px;
       border-radius: 100%;
+      margin-right: 15px;
+    }
+
+    &_name {
+      font-size: 20px;
+      font-weight: 700;
     }
 
     &_delete {
@@ -91,7 +101,11 @@
   }
 
   &__message {
+    width: 300px;
     color: #666666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

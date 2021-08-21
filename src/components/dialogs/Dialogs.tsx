@@ -7,96 +7,144 @@ import {NavLink} from 'react-router-dom';
 
 export const trashIcon = <FontAwesomeIcon icon={faTrash}/>
 
+type MessageItemType = {
+    textBody: string
+    url: string
+}
+type DialogItemType = {
+    name: string
+    id: number
+    textBody: string
+    url: string
+}
+type DialogHeaderInfoType = {
+    url: string
+    name: string
+}
+const MessageItemOwner: React.FC<MessageItemType> = (props) => {
+    const {textBody, url} = props
+    return (
+        <div className={style.message__owner}>
+            <div className={style.message__owner_text}>
+                {textBody}
+            </div>
+            <div className={style.message__owner_image}>
+                <img src={url} alt="avatar"/>
+            </div>
+        </div>
+    );
+}
+const MessageItemGuest: React.FC<MessageItemType> = (props) => {
+    const {textBody, url} = props
+    return <div className={style.message__guest}>
+        <div className={style.message__guest_image}>
+            <img src={url} alt="avatar"/>
+        </div>
+        <div className={style.message__guest_text}>
+            {textBody}
+        </div>
+    </div>;
+}
+const DialogItem: React.FC<DialogItemType> = (props) => {
+    const {name, id, textBody, url} = props
+    return (
+        <NavLink to={`/dialogs/${id}`} className={style.dialog} activeClassName={style.active}>
+            <div>
+                <img className={style.dialog__image} src={url} alt="avatar"/>
+            </div>
+            <div className={style.dialog__container}>
+                <div className={style.dialog__name}>
+                    {name}
+                </div>
+                <div className={style.dialog__message}>
+                    {textBody}
+                </div>
+            </div>
+        </NavLink>);
+}
+
+const InputMessage = () => {
+    return (
+        <div className={style.area}>
+                <textarea className={style.area__textarea} placeholder={"Your Message..."}>
+                </textarea>
+            <button className={style.area__button}>Send</button>
+        </div>);
+}
+
+const DialogHeaderSearch = () => {
+    return <div className={style.wrapper__search}>
+        <input type="text" placeholder={"Search"}/>
+    </div>;
+}
+
+const DialogHeaderInfo: React.FC<DialogHeaderInfoType> = (props) => {
+    const {url, name} = props
+    return <div className={style.wrapper__companion}>
+        <div className={style.wrapper__companion_info}>
+            <img className={style.wrapper__companion_image} src={url} alt="avatar"/>
+            <div className={style.wrapper__companion_name}>{name}</div>
+        </div>
+        <button className={style.wrapper__companion_delete}>
+            <i>{trashIcon}</i>
+            delete conversation
+        </button>
+    </div>;
+}
+
 const Dialogs = () => {
     return (
         <div className={style.wrapper__content}>
-            <div className={style.wrapper__search}>
-                <input type="text" placeholder={"Search"}/>
-            </div>
-            <div className={style.wrapper__companion}>
-                <img className={style.wrapper__companion_image} src="./img/avatar-1.jpg" alt="avatar"/>
-                <button className={style.wrapper__companion_delete}>
-                    <i>{trashIcon}</i>
-                    delete conversation
-                </button>
-            </div>
+            <DialogHeaderSearch/>
+            <DialogHeaderInfo
+                url={"./img/avatar-1.jpg"}
+                name={"Sindy Forest"}
+            />
             <div className={style.wrapper__dialogs}>
-                <NavLink to="/dialogs/1" className={style.dialog} activeClassName={style.active}>
-                    <div>
-                        <img className={style.dialog__image} src="./img/avatar-2.jpg" alt="avatar"/>
-                    </div>
-                    <div className={style.dialog__container}>
-                        <div className={style.dialog__name}>
-                            David Peterson
-                        </div>
-                        <div className={style.dialog__message}>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </NavLink>
-                <NavLink to="/dialogs/2" className={style.dialog} activeClassName={style.active}>
-                    <div>
-                        <img className={style.dialog__image} src="./img/avatar-3.jpg" alt="avatar"/>
-                    </div>
-                    <div className={style.dialog__container}>
-                        <div className={style.dialog__name}>
-                            Sindy Forest
-                        </div>
-                        <div className={style.dialog__message}>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </NavLink>
-                <NavLink to="/dialogs/3" className={style.dialog} activeClassName={style.active}>
-                    <div>
-                        <img className={style.dialog__image} src="./img/avatar-4.jpg" alt="avatar"/>
-                    </div>
-                    <div className={style.dialog__container}>
-                        <div className={style.dialog__name}>
-                            David Peterson
-                        </div>
-                        <div className={style.dialog__message}>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </NavLink>
-                <NavLink to="/dialogs/4" className={style.dialog} activeClassName={style.active}>
-                    <div>
-                        <img className={style.dialog__image} src="./img/avatar-5.jpg" alt="avatar"/>
-                    </div>
-                    <div className={style.dialog__container}>
-                        <div className={style.dialog__name}>
-                            Zara Ali
-                        </div>
-                        <div className={style.dialog__message}>
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </NavLink>
+                <DialogItem
+                    name={"David Peterson"}
+                    id={1}
+                    textBody={"Lorem ipsum dolor sit amet," +
+                    "nostrum officiis omnis praesentium provident reprehenderit sit tempore."}
+                    url={"./img/avatar-2.jpg"}
+                />
+                <DialogItem
+                    name={"Sindy Forest"}
+                    id={2}
+                    textBody={"Lorem ipsum dolor sit amet," +
+                    "raesentium provident reprehenderit sit tempore."}
+                    url={"./img/avatar-3.jpg"}
+                />
+                <DialogItem
+                    name={"David Peterson"}
+                    id={3}
+                    textBody={"Lorem ipsum dolor sit amet," +
+                    "nostrum officiis omnerit sit tempore."}
+                    url={"./img/avatar-4.jpg"}
+                />
+                <DialogItem
+                    name={"Zara Ali"}
+                    id={4}
+                    textBody={"Lorem sit amet," +
+                    "dicta distinctio eeprehenderit sit tempore."}
+                    url={"./img/avatar-5.jpg"}
+                />
             </div>
             <div className={style.messages}>
-                <div className={style.message__owner}>
-                    <div className={style.message__owner_text}>
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </div>
-                    <div className={style.message__owner_image}>
-                        <img src="./img/avatar.png" alt="avatar"/>
-                    </div>
-                </div>
-                <div className={style.message__guest}>
-                    <div className={style.message__guest_image}>
-                        <img src="./img/avatar-1.jpg" alt="avatar"/>
-                    </div>
-                    <div className={style.message__guest_text}>
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </div>
-                </div>
+                <MessageItemOwner
+                    textBody={"Lorem dolor sit amet, consectetur adipisicing elit." +
+                    "Ab delectus dolor doloremque est eum explicabo id, illo, itaque laboriosam" +
+                    "nemo nesciunt nostrum numquam optio placeat porro, quasi totam vero voluptate."}
+                    url={"./img/avatar.png"}
+                />
+                <MessageItemGuest
+                    textBody={"Lorem dolor sit amet, consectetur adipisicing elit." +
+                    "Ab delectus dolor doloremque est eum explicabo id, illo, itaque laboriosam" +
+                    "nemo nesciunt nostrum numquam optio placeat porro, quasi totam vero voluptate."}
+                    url={"./img/avatar-1.jpg"}
+                />
             </div>
-            <div className={style.area}>
-                <textarea className={style.area__textarea} placeholder={"Your Message..."}>
-                </textarea>
-                <button className={style.area__button}>Send</button>
-            </div>
+            <InputMessage/>
         </div>
     );
 };
