@@ -2,7 +2,7 @@ import React from 'react';
 import style from "./Post.module.scss"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons'
-import {PostType} from "../Posts";
+import {PostType} from "../../../redux/state";
 
 
 const likeButtonIcon = <FontAwesomeIcon icon={faThumbsUp}/>
@@ -14,7 +14,7 @@ const Post: React.FC<PostType> = (props) => {
         <>
             <div className={style.user}>
                 <div>
-                    <img className={style.user__image} src="./img/avatar.png" alt="avatar"/>
+                    <img className={style.user__image} src="/img/avatar.png" alt="avatar"/>
                 </div>
                 <div className={style.user__post}>
                     <div className={style.user__name}>Johnson Smith</div>
@@ -24,10 +24,10 @@ const Post: React.FC<PostType> = (props) => {
             <div className={style.buttons}>
                 <button>
                     <i>{likeButtonIcon}</i>
-                    <span>{like}</span></button>
+                    <span>{like > 0 ? like : ""}</span></button>
                 <button>
                     <i>{disLikeButtonIcon}</i>
-                    <span>{disLike}</span></button>
+                    <span>{disLike > 0 ? disLike : ""}</span></button>
             </div>
         </>
     );

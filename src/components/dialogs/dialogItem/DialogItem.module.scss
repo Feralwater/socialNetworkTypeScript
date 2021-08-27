@@ -1,0 +1,32 @@
+.active {
+  background-color: #f3f4f6;
+}
+
+.dialog {
+  display: flex;
+  padding: 20px;
+  text-decoration: none;
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin-right: 20px;
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin: 10px 0 15px 0;
+    color: #000000;
+  }
+
+  &__message {
+    width: 300px;
+    color: #666666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

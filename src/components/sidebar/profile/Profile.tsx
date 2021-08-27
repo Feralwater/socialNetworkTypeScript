@@ -4,7 +4,7 @@ import style from "./Profile.module.scss";
 const Profile = () => {
     return (
         <div className={style.profile}>
-            <img src="./img/avatar.png" alt="avatar"/>
+            <img src="/img/avatar.png" alt="avatar"/>
             <span className={style.name}>Stella Johnson</span>
             <div className={style.profile__info}>
                 <div className={style.profile__info_details}><span>Posts</span>130</div>

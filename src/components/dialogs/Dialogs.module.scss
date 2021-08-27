@@ -76,122 +76,11 @@
   }
 }
 
-.dialog {
-  display: flex;
-  padding: 20px;
-  text-decoration: none;
-
-  &__container {
-
-  }
-
-  &__image {
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    margin-right: 20px;
-  }
-
-  &__name {
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: capitalize;
-    margin: 10px 0 15px 0;
-    color: #000000;
-  }
-
-  &__message {
-    width: 300px;
-    color: #666666;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
 .messages {
   grid-area: messages;
   padding: 20px;
   display: flex;
   flex-direction: column;
-
-  & .message__owner {
-    display: flex;
-    align-self: flex-end;
-    margin: 20px 0;
-
-    &_text {
-      background-color: #2563eb;
-      width: 30vw;
-      padding: 15px;
-      border-radius: 6px;
-      color: #ffffff;
-      font-size: 18px;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 0;
-        z-index: 1;
-        border-style: solid;
-        border-color: transparent #2563eb;
-        border-width: 11px 0 11px 12px;
-        top: 30px;
-        right: -12px;
-        margin-top: -11px;
-      }
-    }
-
-    &_image {
-      & img {
-        width: 100px;
-        height: 100px;
-        border-radius: 100%;
-        margin-left: 20px;
-      }
-    }
-  }
-
-  & .message__guest {
-    display: flex;
-    align-self: flex-start;
-    margin: 20px 0;
-
-    &_text {
-      background-color: #f3f4f6;
-      width: 30vw;
-      padding: 15px;
-      border-radius: 6px;
-      color: #666666;
-      font-size: 18px;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 0;
-        z-index: 1;
-        border-style: solid;
-        border-color: transparent #f3f4f6;
-        border-width: 11px 12px 11px 0;
-        top: 30px;
-        left: -12px;
-        margin-top: -11px;
-      }
-    }
-
-    &_image {
-      & img {
-        width: 100px;
-        height: 100px;
-        border-radius: 100%;
-        margin-right: 20px;
-      }
-    }
-  }
 }
 
 .area {
@@ -237,6 +126,3 @@
   }
 }
 
-.active {
-  background-color: #f3f4f6;
-}

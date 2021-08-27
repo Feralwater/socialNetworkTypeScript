@@ -13,7 +13,7 @@ const Header = () => {
                 <button className={style.header__button}>Follow</button>
                 <i>{noticeIcon}</i>
                 <i className={style.header__envelop}>{messageIcon}<span className={style.header__counter}>3</span></i>
-                <img className={style.header__avatar} src="./img/avatar.png" alt="avatar"/>
+                <img className={style.header__avatar} src="/img/avatar.png" alt="avatar"/>
             </div>
         </header>
     );

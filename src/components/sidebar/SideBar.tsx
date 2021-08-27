@@ -8,7 +8,7 @@ const SideBar = () => {
     return (
         <div className={style.sidebar}>
             <div className={style.logo_block}>
-                <img src="./img/logo.png" alt="logo"/>
+                <img src="/img/logo.png" alt="logo"/>
                 <span>Social Network</span>
             </div>
             <Profile/>

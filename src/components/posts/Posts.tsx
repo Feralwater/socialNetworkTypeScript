@@ -3,17 +3,13 @@ import style from "./Posts.module.scss";
 import Post from "./Post/Post";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
+import {PostsPageType} from "../../redux/state";
 
 
 const addButtonIcon = <FontAwesomeIcon icon={faPlusCircle}/>
 
-export type PostType = {
-    message: string
-    like: number | ""
-    disLike: number | ""
-}
-
-const Posts = () => {
+const Posts = (props: PostsPageType) => {
+    const {posts} = props
     return (
         <main className={style.main}>
             <div className={style.form}>
@@ -24,14 +20,12 @@ const Posts = () => {
                     Add
                 </button>
             </div>
-            <Post message={"Hello, how are you"}
-                  like={234}
-                  disLike={34}
-            />
-            <Post message={"It`s my first post"}
-                  like={""}
-                  disLike={""}
-            />
+            {posts.map(post => (
+                <Post message={post.message}
+                      like={post.like}
+                      disLike={post.disLike}
+                />
+            ))}
         </main>
     );
 };
