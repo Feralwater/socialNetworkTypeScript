@@ -1,0 +1,42 @@
+.area {
+  grid-area: area;
+  border-top: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__textarea {
+    border: none;
+    color: #666666;
+    font-size: 18px;
+    outline: none;
+    resize: none;
+    padding: 15px;
+    width: 30vw;
+  }
+
+  :focus::-webkit-input-placeholder {
+    color: transparent
+  }
+
+  :focus::-moz-placeholder {
+    color: transparent
+  }
+
+  :focus:-ms-input-placeholder {
+    color: transparent
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px 35px;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+}

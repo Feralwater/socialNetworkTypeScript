@@ -7,14 +7,22 @@ type DialogItemType = {
     name: string
     id: number
     url: string
+    isOnline: boolean
 }
 
 const DialogItem: React.FC<DialogItemType> = (props) => {
-    const {name, id, url} = props
+    const {name, id, url, isOnline} = props
     return (
         <NavLink to={`/dialogs/${id}`} className={style.dialog} activeClassName={style.active}>
-            <div>
+            <div className={style.dialog__image_wrapper}>
                 <img className={style.dialog__image} src={url} alt="avatar"/>
+                <div className={
+                    isOnline ? style.dialog__online
+                        :
+                        style.dialog__offline
+                }
+                >
+                </div>
             </div>
             <div className={style.dialog__container}>
                 <div className={style.dialog__name}>

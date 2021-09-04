@@ -1,9 +1,10 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 300px .5fr 7fr 4fr .5fr;
-  grid-template-rows: 63px 50px 6fr 6fr;
+  grid-template-columns: 300px 1fr 6fr 4fr .5fr;
+  grid-template-rows: 63px 50px 50vh 50vh 11fr;
   grid-template-areas: 'sidebar header header header header'
                        'sidebar . title title .'
                        'sidebar . content block_1 .'
-                       'sidebar . content block_2 .';
+                       'sidebar . content block_2 .'
+                       'sidebar . content . .';
 }

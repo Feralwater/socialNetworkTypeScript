@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./NavBar.module.scss"
-import {logoutIcon, messageIcon, musicIcon, newsIcon, profileIcon, settingsIcon} from "./icons";
+import {logoutIcon, messageIcon, musicIcon, newsIcon, profileIcon, settingsIcon, feedIcon} from "./icons";
 import {NavLink} from 'react-router-dom';
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
                     <NavLink to="/feed" className={`${style.navigation__link_item}`}
                              activeClassName={style.active}
                     >
-                        <i>{profileIcon}</i>
+                        <i>{feedIcon}</i>
                         Feed
                     </NavLink>
                 </li>
@@ -46,6 +46,14 @@ const NavBar = () => {
                     >
                         <i>{settingsIcon}</i>
                         Settings
+                    </NavLink>
+                </li>
+                <li className={style.navigation__link}>
+                    <NavLink to="/profile" className={`${style.navigation__link_item}`}
+                             activeClassName={style.active}
+                    >
+                        <i>{profileIcon}</i>
+                        Profile
                     </NavLink>
                 </li>
             </ul>

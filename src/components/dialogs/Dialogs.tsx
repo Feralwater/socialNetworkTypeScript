@@ -1,56 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import style from "./Dialogs.module.scss"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
 import DialogItem from "./dialogItem/DialogItem";
 import {MessageItemGuest, MessageItemOwner} from "./message/MessageItem";
-import {DialogItemType, DialogPageType, MessageItemType} from "../../redux/state";
+import {DialogPageType} from "../../redux/state";
+import InputMessage from "./inputMessage/InputMessage";
+import DialogHeaderSearch from "./dialogHeaderSearch/DialogHeaderSearch";
+import DialogHeaderInfo from "../dialogHeaderInfo/DialogHeaderInfo";
 
-
-export const trashIcon = <FontAwesomeIcon icon={faTrash}/>
-
-type DialogHeaderInfoType = {
-    url: string
-    name: string
-}
-
-const InputMessage = () => {
-    return (
-        <div className={style.area}>
-                <textarea className={style.area__textarea} placeholder={"Your Message..."}>
-                </textarea>
-            <button className={style.area__button}>Send</button>
-        </div>);
-}
-
-const DialogHeaderSearch = () => {
-    return <div className={style.wrapper__search}>
-        <input type="text" placeholder={"Search"}/>
-    </div>;
-}
-
-const DialogHeaderInfo: React.FC<DialogHeaderInfoType> = (props) => {
-    const {url, name} = props
-    return <div className={style.wrapper__companion}>
-        <div className={style.wrapper__companion_info}>
-            <img className={style.wrapper__companion_image} src={url} alt="avatar"/>
-            <div className={style.wrapper__companion_name}>{name}</div>
-        </div>
-        <button className={style.wrapper__companion_delete}>
-            <i>{trashIcon}</i>
-            delete conversation
-        </button>
-    </div>;
-}
-
-const Dialogs = (props: DialogPageType) => {
-    const {dialogItemData, messages} = props
+const Dialogs: React.FC<DialogPageType> = (
+    {dialogItemData, messages, dispatch, newMessageTextBody}
+) => {
     return (
         <div className={style.wrapper__content}>
             <DialogHeaderSearch/>
             <DialogHeaderInfo
                 url={"/img/avatar-1.jpg"}
                 name={"Zah Abdulla"}
+                isOnline={true}
             />
             <div className={style.wrapper__dialogs}>
                 {dialogItemData.map(item => (
@@ -59,11 +25,11 @@ const Dialogs = (props: DialogPageType) => {
                         name={item.name}
                         id={item.id}
                         url={item.url}
+                        isOnline={item.isOnline}
                     />
                 ))}
             </div>
             <div className={style.messages}>
-
                 {messages.map(message => (message.isOwner ?
                     <MessageItemOwner
                         textBody={message.textBody}
@@ -76,7 +42,9 @@ const Dialogs = (props: DialogPageType) => {
                     />)
                 )}
             </div>
-            <InputMessage/>
+            <InputMessage dispatch={dispatch}
+                          newMessageTextBody={newMessageTextBody}
+            />
         </div>
     );
 };
