@@ -1,5 +1,5 @@
 import {ADD_MESSAGE, UPDATE_NEW_MESSAGE} from "./actionTypes";
-import {ActionCreatorType, ActionType, DialogPageType} from "./types";
+import {ActionCreatorType, ActionTypeMessage} from "./types";
 import {v1} from "uuid";
 
 
@@ -67,7 +67,7 @@ const initialState = {
     ],
     newMessageTextBody: "",
 }
-export const dialogsReducer = (state: any = initialState, action: ActionType) => {
+export const dialogsReducer = (state: any = initialState, action: ActionTypeMessage) => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE:

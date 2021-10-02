@@ -1,5 +1,5 @@
 import {ADD_POST, UPDATE_NEW_POST_TEXT} from "./actionTypes"
-import {ActionCreatorType, ActionType} from "./types";
+import {ActionCreatorType, ActionTypeMessage} from "./types";
 import {v1} from 'uuid';
 
 const initialState = {
@@ -20,7 +20,7 @@ const initialState = {
     newPostText: "",
 }
 
-export const postsReducer = (state: any = initialState, action: ActionType) => {
+export const postsReducer = (state: any = initialState, action: ActionTypeMessage) => {
 
     switch (action.type) {
         case ADD_POST:

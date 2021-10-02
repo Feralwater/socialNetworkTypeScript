@@ -11,7 +11,7 @@ type DialogHeaderInfoType = {
 
 export const trashIcon = <FontAwesomeIcon icon={faTrash}/>
 
-const DialogHeaderInfo: React.FC<DialogHeaderInfoType> = (props) => {
+const DialogHeaderInfo: React.VFC<DialogHeaderInfoType> = (props) => {
     const {url, name, isOnline} = props
     return <div className={style.companion}>
         <div className={style.companion__info}>

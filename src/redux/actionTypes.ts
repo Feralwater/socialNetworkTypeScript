@@ -2,3 +2,5 @@ export const ADD_POST = "ADD_POST";
 export const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 export const UPDATE_NEW_MESSAGE = "UPDATE_NEW_MESSAGE";
 export const ADD_MESSAGE = "ADD_MESSAGE";
+export const FOLLOW_UNFOLLOW = "FOLLOW_UNFOLLOW";
+export const SET_USERS = "SET_USERS";
