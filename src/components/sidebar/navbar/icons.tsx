@@ -1,5 +1,6 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faEnvelope, faNewspaper, faMusic, faWrench, faLockOpen, faBookReader,faUser} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope, faNewspaper, faMusic, faWrench, faLockOpen, faBookReader, faUser}
+    from '@fortawesome/free-solid-svg-icons'
 import React from "react";
 
 export const feedIcon = <FontAwesomeIcon icon={faBookReader}/>

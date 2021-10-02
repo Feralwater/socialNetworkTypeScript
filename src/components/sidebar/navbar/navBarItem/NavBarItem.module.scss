@@ -1,0 +1,32 @@
+.navigation {
+
+  &__link {
+    margin: 35px 0;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    &_item {
+      color: #666666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 15px;
+      position: relative;
+
+      & i {
+        margin: 0 30px 0 0;
+      }
+
+      &:hover {
+        color: #be185d;
+      }
+    }
+  }
+}
+
+.active {
+  color: #be185d;
+}

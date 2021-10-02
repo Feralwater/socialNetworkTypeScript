@@ -29,6 +29,7 @@ const App = () => {
                 </>)}/>
             <Route path={"/dialogs"} render={() => (
                 <DialogsContainer/>)}/>
+            {/*<Route path={"/explore"} render={() => <Explore/>}/>*/}
             <Route path={"/news"} render={() => <News/>}/>
             <Route path={"/music"} render={() => <Music/>}/>
             <Route path={"/settings"} render={() => <Settings/>}/>
