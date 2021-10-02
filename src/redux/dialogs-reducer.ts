@@ -1,5 +1,6 @@
 import {ADD_MESSAGE, UPDATE_NEW_MESSAGE} from "./actionTypes";
-import {ActionCreatorType, ActionType, DialogPageType} from "./state";
+import {ActionCreatorType, ActionType, DialogPageType} from "./types";
+import {v1} from "uuid";
 
 
 const initialState = {
@@ -70,17 +71,21 @@ export const dialogsReducer = (state: any = initialState, action: ActionType) =>
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE:
-            state.newMessageTextBody = action.newText;
-            return state
+            return {
+                ...state,
+                newMessageTextBody: action.newText
+            }
         case ADD_MESSAGE:
             const newMessage = {
-                id: 5,
+                id: v1(),
                 textBody: state.newMessageTextBody,
                 isOwner: true,
             };
-            state.messages.push(newMessage);
-            state.newMessageTextBody = "";
-            return state
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageTextBody: ""
+            }
         default:
             return state
     }

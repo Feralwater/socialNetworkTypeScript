@@ -2,13 +2,16 @@ import React, {FC} from 'react';
 import style from "./Dialogs.module.scss"
 import DialogItem from "./dialogItem/DialogItem";
 import {MessageItemGuest, MessageItemOwner} from "./message/MessageItem";
-import {DialogPageType} from "../../redux/state";
+import {DialogPageType} from "../../redux/types";
 import InputMessage from "./inputMessage/InputMessage";
 import DialogHeaderSearch from "./dialogHeaderSearch/DialogHeaderSearch";
 import DialogHeaderInfo from "../dialogHeaderInfo/DialogHeaderInfo";
 
-const Dialogs: React.FC<DialogPageType> = (
-    {dialogItemData, messages, dispatch, newMessageTextBody}
+const Dialogs: React.VFC<any> = (
+    {
+        dialogItemData, messages,
+        addMessageActionCreator, updateNewMessageActionCreator, newMessageTextBody
+    }
 ) => {
     return (
         <div className={style.wrapper__content}>
@@ -19,7 +22,7 @@ const Dialogs: React.FC<DialogPageType> = (
                 isOnline={true}
             />
             <div className={style.wrapper__dialogs}>
-                {dialogItemData.map(item => (
+                {dialogItemData.map((item:any) => (
                     <DialogItem
                         key={item.id}
                         name={item.name}
@@ -30,7 +33,7 @@ const Dialogs: React.FC<DialogPageType> = (
                 ))}
             </div>
             <div className={style.messages}>
-                {messages.map(message => (message.isOwner ?
+                {messages.map((message:any) => (message.isOwner ?
                     <MessageItemOwner
                         textBody={message.textBody}
                         // url={"/img/avatar.png"}
@@ -42,8 +45,9 @@ const Dialogs: React.FC<DialogPageType> = (
                     />)
                 )}
             </div>
-            <InputMessage dispatch={dispatch}
+            <InputMessage addMessageActionCreator={addMessageActionCreator}
                           newMessageTextBody={newMessageTextBody}
+                          updateNewMessageActionCreator={updateNewMessageActionCreator}
             />
         </div>
     );

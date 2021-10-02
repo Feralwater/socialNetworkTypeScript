@@ -2,14 +2,15 @@ import React from 'react';
 import style from "./Post.module.scss"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons'
-import {PostType} from "../../../redux/state";
+import {PostType} from "../../../redux/types";
 
 
 const likeButtonIcon = <FontAwesomeIcon icon={faThumbsUp}/>
 const disLikeButtonIcon = <FontAwesomeIcon icon={faThumbsDown}/>
 
-const Post: React.FC<PostType> = (props) => {
-    const {message, like, disLike} = props
+const Post: React.VFC<PostType> = (
+    {message, like, disLike}
+) => {
     return (
         <>
             <div className={style.user}>

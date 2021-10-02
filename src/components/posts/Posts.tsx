@@ -3,27 +3,22 @@ import style from "./Posts.module.scss";
 import Post from "./Post/Post";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
-import {PostType} from "../../redux/state";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/posts-reducer";
+import {PostsPropsType} from "../../redux/types";
 
 
 const addButtonIcon = <FontAwesomeIcon icon={faPlusCircle}/>
 
-type PropsType = {
-    posts: Array<PostType>
-    dispatch: any
-    newPostText: string
-}
 
-const Posts = (props: PropsType) => {
-    const {posts, dispatch, newPostText} = props;
+const Posts: React.VFC<PostsPropsType> = (
+    {posts, newPostText, updateNewPostTextActionCreator, addPostActionCreator}
+) => {
     const newPostElement = createRef<HTMLTextAreaElement>();
     const addNewPost = () => {
-        dispatch(addPostActionCreator())
+        addPostActionCreator()
     }
     const onPostChange = () => {
-        const text = newPostElement.current!.value;
-        dispatch(updateNewPostTextActionCreator(text))
+        const text = newPostElement.current?.value;
+        updateNewPostTextActionCreator(text)
     }
     return (
         <main className={style.main}>
@@ -42,7 +37,8 @@ const Posts = (props: PropsType) => {
                 </button>
             </div>
             {posts.map(post => (
-                <Post message={post.message}
+                <Post key={post.id}
+                      message={post.message}
                       like={post.like}
                       disLike={post.disLike}
                 />

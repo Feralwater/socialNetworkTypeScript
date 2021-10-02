@@ -11,49 +11,30 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
-import {RootStateType} from "./redux/state";
 import ProfilePage from "./components/profile/profilePage";
+import {DialogsContainer} from "./components/dialogs/DialogsContainer";
+import {PostsContainer} from "./components/posts/Post/PostsContainer";
 
-
-type AppPropsType = {
-    state: any
-    dispatch: any
-    store:any
-}
-const App = (props: AppPropsType) => {
-    const {postsPage, dialogPage} = props.state
-    const {newPostText} = props.state.postsPage
-    const {newMessageTextBody} = props.state.dialogPage
-    const {dispatch} = props
-    return (<BrowserRouter>
+const App = () => {
+    return (
         <div className={style.wrapper}>
             <Header/>
             <SideBar/>
             <Title/>
             <Route path={"/feed"} render={() => (
                 <>
-                    <Posts
-                        posts={postsPage.posts}
-                        dispatch={dispatch}
-                        newPostText={newPostText}
-                    />
+                    <PostsContainer/>
                     <Followers/>
                     <Info/>
                 </>)}/>
             <Route path={"/dialogs"} render={() => (
-                <Dialogs
-                    dispatch={dispatch}
-                    newMessageTextBody={newMessageTextBody}
-                    dialogItemData={dialogPage.dialogItemData}
-                    messages={dialogPage.messages}
-                />)}/>
+                <DialogsContainer/>)}/>
             <Route path={"/news"} render={() => <News/>}/>
             <Route path={"/music"} render={() => <Music/>}/>
             <Route path={"/settings"} render={() => <Settings/>}/>
             <Route path={"/profile"} render={() => <ProfilePage/>}/>
         </div>
-    </BrowserRouter>)
-        ;
+    );
 }
 
 export default App;
