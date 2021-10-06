@@ -3,7 +3,7 @@ import style from "./Posts.module.scss";
 import Post from "./Post/Post";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons'
-import {PostsPropsType} from "../../redux/types";
+import {PostsPropsType} from "./Post/PostsContainer";
 
 
 const addButtonIcon = <FontAwesomeIcon icon={faPlusCircle}/>
@@ -36,7 +36,7 @@ const Posts: React.VFC<PostsPropsType> = (
                     Add
                 </button>
             </div>
-            {posts.map(post => (
+            {posts.map((post) => (
                 <Post key={post.id}
                       message={post.message}
                       like={post.like}

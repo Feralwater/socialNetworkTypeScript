@@ -1,6 +1,11 @@
 import React from "react";
 import style from "./MessageItem.module.scss";
-import {MessageItemType} from "../../../redux/types";
+
+export type MessageItemType = {
+    id?: number
+    textBody: string
+    isOwner?: boolean
+}
 
 export const MessageItemOwner: React.FC<MessageItemType> = (props) => {
     const {textBody} = props

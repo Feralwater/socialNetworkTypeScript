@@ -1,17 +1,9 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import style from "./DialogItem.module.scss";
+import {DialogType} from "../../../redux/dialogs-reducer";
 
-
-type DialogItemType = {
-    name: string
-    id: number
-    url: string
-    isOnline: boolean
-}
-
-const DialogItem: React.FC<DialogItemType> = (props) => {
-    const {name, id, url, isOnline} = props
+const DialogItem: React.VFC<DialogType> = ({name, id, url, isOnline}) => {
     return (
         <NavLink to={`/dialogs/${id}`} className={style.dialog} activeClassName={style.active}>
             <div className={style.dialog__image_wrapper}>

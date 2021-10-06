@@ -1,11 +1,10 @@
 import React from 'react';
 import style from "./App.module.scss"
 import Header from "./components/header/Header";
-import Followers from "./components/followers/Followers";
 import Info from "./components/info/Info";
 import SideBar from "./components/sidebar/SideBar";
 import Title from "./components/title/Title";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
@@ -13,6 +12,7 @@ import ProfilePage from "./components/profile/profilePage";
 import {DialogsContainer} from "./components/dialogs/DialogsContainer";
 import {PostsContainer} from "./components/posts/Post/PostsContainer";
 import {ExploreContainer} from "./components/explore/ExploreContainer";
+import {UsersContainer} from "./components/users/UsersContainer";
 
 const App = () => {
     return (
@@ -23,7 +23,7 @@ const App = () => {
             <Route path={"/feed"} render={() => (
                 <>
                     <PostsContainer/>
-                    <Followers/>
+                    <UsersContainer/>
                     <Info/>
                 </>)}/>
             <Route path={"/dialogs"} render={() => (

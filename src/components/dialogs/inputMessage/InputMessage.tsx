@@ -2,10 +2,12 @@ import style from "./InputMessage.module.scss";
 import React, {ChangeEvent} from "react";
 
 
-type PropsType = {
-
+type InputMessagePropsType = {
+    addMessageActionCreator: () => void
+    updateNewMessageActionCreator: (text: string) => void
+    newMessageTextBody: string
 }
-const InputMessage: React.FC<any> = (
+const InputMessage: React.VFC<InputMessagePropsType> = (
     {addMessageActionCreator, updateNewMessageActionCreator, newMessageTextBody}
 ) => {
     const newMessageElement = newMessageTextBody;

@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
 import style from "./Dialogs.module.scss"
 import DialogItem from "./dialogItem/DialogItem";
 import {MessageItemGuest, MessageItemOwner} from "./message/MessageItem";
-import {DialogPageType} from "../../redux/types";
 import InputMessage from "./inputMessage/InputMessage";
 import DialogHeaderSearch from "./dialogHeaderSearch/DialogHeaderSearch";
 import DialogHeaderInfo from "../dialogHeaderInfo/DialogHeaderInfo";
+import {DialogPropsType} from "./DialogsContainer";
 
-const Dialogs: React.VFC<any> = (
+const Dialogs: React.VFC<DialogPropsType> = (
     {
         dialogItemData, messages,
         addMessageActionCreator, updateNewMessageActionCreator, newMessageTextBody
@@ -22,7 +22,7 @@ const Dialogs: React.VFC<any> = (
                 isOnline={true}
             />
             <div className={style.wrapper__dialogs}>
-                {dialogItemData.map((item:any) => (
+                {dialogItemData.map((item) => (
                     <DialogItem
                         key={item.id}
                         name={item.name}
@@ -33,13 +33,15 @@ const Dialogs: React.VFC<any> = (
                 ))}
             </div>
             <div className={style.messages}>
-                {messages.map((message:any) => (message.isOwner ?
+                {messages.map((message) => (message.isOwner ?
                     <MessageItemOwner
+                        key={message.id}
                         textBody={message.textBody}
                         // url={"/img/avatar.png"}
                     />
                     :
                     <MessageItemGuest
+                        key={message.id}
                         textBody={message.textBody}
                         // url={"/img/avatar-1.jpg"}
                     />)

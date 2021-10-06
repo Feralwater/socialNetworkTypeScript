@@ -1,0 +1,80 @@
+.users {
+  grid-area: block_1;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: rgba(163, 163, 163, 0.87) 3px 3px 7px -1px;
+  margin: 50px 0 0 50px;
+  overflow: auto;
+}
+
+.title {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9fafb;
+    height: 40px;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e8eaed;
+  }
+
+  &__title {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__button {
+    color: #666666;
+  }
+}
+
+.wrapper {
+  padding: 0 20px;
+}
+
+.user {
+  display: flex;
+  color: #666666;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8eaed;
+  height: 100px;
+  align-items: center;
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+    &_mock {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background: center/contain no-repeat url("../../img/user-mock.png");
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 0 15px;
+
+  }
+
+  &__status {
+    font-size: 14px;
+  }
+
+  &__button {
+    color: #666666;
+    font-weight: 500;
+    border: 1px solid #e8eaed;
+    padding: 10px 25px;
+    border-radius: 30px;
+  }
+}

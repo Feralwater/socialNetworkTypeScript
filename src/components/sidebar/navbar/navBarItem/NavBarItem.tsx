@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import style from "./NavBarItem.module.scss";
 import {NavLink} from "react-router-dom";
-import {NavBarItemPropsType} from "../../../../redux/types";
+
+export type NavBarItemPropsType = {
+    icon: ReactElement<any, any>
+    url: string
+}
 
 const NavBarItem: React.FC<NavBarItemPropsType> = (
     {children, icon, url}

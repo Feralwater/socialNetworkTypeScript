@@ -2,7 +2,13 @@ import React from 'react';
 import style from "./Post.module.scss"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons'
-import {PostType} from "../../../redux/types";
+
+export type PostType = {
+    id?: string
+    message: string | undefined
+    like: number
+    disLike: number
+}
 
 
 const likeButtonIcon = <FontAwesomeIcon icon={faThumbsUp}/>
