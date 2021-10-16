@@ -1,4 +1,4 @@
-import {FOLLOW_UNFOLLOW, SET_CURRENT_PAGE, SET_TOTAL_USERS_COUNT, SET_USERS} from "./actionTypes";
+import {FOLLOW_UNFOLLOW, SET_CURRENT_PAGE, SET_TOTAL_USERS_COUNT, SET_USERS, SET_IS_FETCHING} from "./actionTypes";
 
 export type PhotosType = {
     small: null | string
@@ -17,18 +17,21 @@ export type initialStateExploreType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
 const initialState: initialStateExploreType = {
     users: [],
     pageSize: 4,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 type ActionsTypes = ReturnType<typeof followUnfollowActionCreator>
     | ReturnType<typeof setUsersActionCreator>
     | ReturnType<typeof setCurrentPageActionCreator>
     | ReturnType<typeof setTotalUsersCountActionCreator>
+    | ReturnType<typeof setIsFetchingActionCreator>
 
 export const usersReducer = (state: initialStateExploreType = initialState, action: ActionsTypes): initialStateExploreType => {
 
@@ -53,6 +56,11 @@ export const usersReducer = (state: initialStateExploreType = initialState, acti
                 ...state,
                 totalUsersCount: action.totalCount
             }
+        case SET_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state
     }
@@ -65,3 +73,4 @@ export const setTotalUsersCountActionCreator = (totalCount: number) => ({
     type: SET_TOTAL_USERS_COUNT,
     totalCount
 } as const)
+export const setIsFetchingActionCreator = (isFetching: boolean) => ({type: SET_IS_FETCHING, isFetching} as const)
